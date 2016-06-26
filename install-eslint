@@ -2,8 +2,8 @@
 
 npm install -g json
 npm i -D eslint eslint-config-airbnb eslint-plugin-import eslint-watch
-json -I -f package.json -e 'this.scripts.lint="eslint --fix index.js"'
-json -I -f package.json -e 'this.scripts["lint:watch"]="esw --fix --watch index.js"'
+json -I -f package.json -e 'this.scripts.lint="eslint --fix frontend"'
+json -I -f package.json -e 'this.scripts["lint:watch"]="esw --fix --watch frontend"'
 echo '
 {
   "max-len": 0,
