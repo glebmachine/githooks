@@ -1,0 +1,8 @@
+#!/bin/bash
+
+npm i -D pac
+echo '
+pac
+git add .modules
+' > .githooks/pre-commit/pac
+chmod +x .githooks/pre-commit/pac

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+npm install git-hooks --save-dev
+mkdir -p .githooks/pre-commit
+chmod -R +x .githooks

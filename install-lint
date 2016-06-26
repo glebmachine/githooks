@@ -1,0 +1,24 @@
+#!/bin/bash
+
+npm install -g json
+npm i -D eslint eslint-config-airbnb eslint-plugin-import eslint-watch
+json -I -f package.json -e 'this.scripts.lint="eslint --fix index.js"'
+json -I -f package.json -e 'this.scripts["lint:watch"]="esw --fix --watch index.js"'
+echo '
+{
+  "max-len": 0,
+  "rules": {
+    "indent": ["error", 2, { "VariableDeclarator": 1 }],
+    "global-require": 0,
+    "func-names": 0,
+    "prefer-rest-params": 1,
+    "strict": 1,
+    "no-param-reassign": 0
+  }
+}
+' > .eslintrc.json
+
+echo '
+npm run lint
+' > .githooks/pre-commit/lint
+chmod +x .githooks/pre-commit/lint
