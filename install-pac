@@ -6,7 +6,7 @@ if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ];
   then
     echo "Sorry, you work on windows, no hooks for you";
   else
-    echo "Make shure all modules are packed";
+    echo "Make sure all modules are packed";
     pac
     git add .modules
 fi
