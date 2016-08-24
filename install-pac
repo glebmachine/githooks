@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm i -D pac
+npm i -D glebmachine/node-pac
 echo '
 if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ];
   then
