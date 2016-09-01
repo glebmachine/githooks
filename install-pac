@@ -13,4 +13,24 @@ if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ];
     git add .modules
 fi
 ' > .githooks/pre-commit/pac
+
+echo '
+#!/bin/bash
+
+if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ];
+  then
+    echo "Sorry, you work on windows, no hooks for you";
+  else
+    # if not jenkins environment
+    if [ -z "$JENKINS_HOME" ]; then
+      echo "Make sure all modules are up to date";
+      ./node_modules/.bin/pac install
+      git add .modules
+    else
+      echo 'HI JENKINS, SKIP PAC'
+    fi
+fi
+' > .githooks/post-merge/pac
+
+
 chmod +x .githooks/pre-commit/pac
