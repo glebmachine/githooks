@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm i -D glebmachine/node-pac
+npm i --save-dev glebmachine/node-pac
 echo '
 #!/bin/bash
 
