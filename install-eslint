@@ -32,7 +32,7 @@ echo '
 
 # if not jenkins environment
 if [ -z "$JENKINS_HOME" ]; then
-  for file in $(git diff --cached --name-only | grep -E '\.(js|jsx)$')
+  for file in $(git diff --cached --name-only | grep -E '\.(js|jsx)$' | grep -v 'www')
   do
     node_modules/.bin/eslint --fix "$file" # we only want to lint the staged changes, not any un-staged changes
     if [ $? -ne 0 ]; then
