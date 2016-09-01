@@ -28,6 +28,19 @@ echo '
 ' > .eslintrc.json
 
 echo '
-npm run lint
+#!/bin/bash
+
+for file in $(git diff --cached --name-only | grep -E '\.(js|jsx)$')
+do
+  node_modules/.bin/eslint --fix "$file" # we only want to lint the staged changes, not any un-staged changes
+  if [ $? -ne 0 ]; then
+    echo -en "Нужно полинтить файл  \033[37;1;41m$file\033[0m. Проверь свой код и попробуй снова."
+    printf "\nПока ты не приведешь код к красивому виду ты не сможешь сделать коммит.\n"
+    git add "$file";
+    exit 1 # exit with failure status
+  else 
+    git add "$file";
+  fi
+done
 ' > .githooks/pre-commit/lint
 chmod +x .githooks/pre-commit/lint
