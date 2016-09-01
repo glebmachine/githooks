@@ -2,6 +2,8 @@
 
 npm i -D glebmachine/node-pac
 echo '
+#!/bin/bash
+
 if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ];
   then
     echo "Sorry, you work on windows, no hooks for you";
