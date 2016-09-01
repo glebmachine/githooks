@@ -19,6 +19,8 @@ echo '
 ' > .eslintrc.json
 
 echo '
+#!/bin/bash
+
 npm run lint
 ' > .githooks/pre-commit/lint
 chmod +x .githooks/pre-commit/lint
