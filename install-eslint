@@ -1,11 +1,10 @@
 #!/bin/bash
 
 npm install -g json
-npm i -D eslint eslint-config-airbnb eslint-plugin-import eslint-watch
+npm i -D eslint@2.13.1 eslint-config-airbnb@9.0.1
 json -I -f package.json -e 'this.scripts.lint="eslint --fix frontend"'
-json -I -f package.json -e 'this.scripts["lint:watch"]="esw --fix --watch frontend"'
-echo '
-{
+
+echo '{
   "max-len": 0,
   "extends": "airbnb",
   "rules": {
