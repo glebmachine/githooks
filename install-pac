@@ -1,6 +1,8 @@
 #!/bin/bash
 
 npm i --save-dev glebmachine/node-pac
+mkdir .githooks/pre-commit;
+mkdir .githooks/post-merge;
 echo '
 #!/bin/bash
 
