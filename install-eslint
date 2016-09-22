@@ -44,7 +44,7 @@ if [ -z "$JENKINS_HOME" ]; then
     fi
   done
 else
-  echo 'HI JENKINS, SKIP LINT'
+  echo HI JENKINS, SKIP LINT
 fi
 ' > .githooks/pre-commit/lint
 chmod +x .githooks/pre-commit/lint
